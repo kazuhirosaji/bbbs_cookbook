@@ -6,3 +6,8 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+group "www-data" do
+  action :modify
+  members ['vagrant']
+  append true
+end
