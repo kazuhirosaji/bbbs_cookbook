@@ -89,6 +89,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       chef.add_recipe "httpd"
       chef.add_recipe "mysql"
       chef.add_recipe "php"
+      chef.add_recipe "group"
   #   chef.add_role "web"
   #
   #   # You may also specify custom JSON attributes:
