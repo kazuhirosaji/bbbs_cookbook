@@ -1,0 +1,18 @@
+2014-11-29 00:30:14 Error: [MissingControllerException] Controller class ~sajiController could not be found.
+Exception Attributes: array (
+  'class' => '~sajiController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp_bbbs/~saji/cakephp_bbbs/
+Stack Trace:
+#0 /Users/saji/Sites/cakephp_bbbs/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-11-29 14:58:59 Error: [MissingControllerException] Controller class ~sajiController could not be found.
+Exception Attributes: array (
+  'class' => '~sajiController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp_bbbs/~saji/cakephp_bbbs/
+Stack Trace:
+#0 /Users/saji/Sites/cakephp_bbbs/app/webroot/index.php(108): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
