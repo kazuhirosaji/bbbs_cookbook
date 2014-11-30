@@ -27,6 +27,13 @@ template "/etc/apache2/sites-available/default" do
   mode 0644
 end
 
+template "/etc/apache2/httpd.conf" do
+  source "httpd.conf.erb"
+  owner "root"
+  group "root"
+  mode 0644
+end
+
 service "apache2" do
   supports :status => true, :restart => true, :reload => true
   action [:enable, :start]
