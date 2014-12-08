@@ -39,3 +39,35 @@ execute "mysql-create-user" do
   p "mysql-create-user !!"
   command "mysql -u root --password=\"#{node['mysql']['db']['rootpass']}\"  < /tmp/grants.sql"
 end
+
+
+package "make" do
+  action :install
+end
+
+package "libmysqld-dev" do
+  action :nothing
+  subscribes :install, "package[make]", :immediately
+end
+
+chef_gem "mysql" do
+  action :nothing
+  subscribes :install, "package[libmysqld-dev]", :immediately
+#  notifies :run, "execute[mysql-create-database]", :immediately
+end
+
+execute "mysql-create-database" do
+  command "/usr/bin/mysqladmin -u root create #{node['mysql']['db']['database']}"
+  not_if do
+  	require 'rubygems'
+  	Gem.clear_paths
+  	require 'mysql'
+  	m = Mysql.new(node['mysql']['db']['host'], "root", node['mysql']['db']['rootpass'])
+  	m.list_dbs.include?(node['mysql']['db']['database'])
+  end
+end
+
+
+
+
+
