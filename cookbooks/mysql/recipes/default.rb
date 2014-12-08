@@ -5,12 +5,6 @@
 # Copyright 2014, YOUR_COMPANY_NAME
 #
 # All rights reserved - Do Not Redistribute
-#
-# execute "setpassword" do
-#   # command "/usr/bin/mysqladmin -u root password root"
-#   # action :nothing
-#   notifies :run, "execute[mysql-create-user]", :immediately
-# end
 
 package "mysql-server" do
   action :install
@@ -18,7 +12,6 @@ end
 
 service "mysql" do
   action [ :enable, :start]
-  # notifies :run, resources(:execute => "setpassword")
 end
 
 template "tmp/grants.sql" do
@@ -31,15 +24,12 @@ template "tmp/grants.sql" do
   	:password => node['mysql']['db']['pass'],
   	:database => node['mysql']['db']['database']
   )
-  p "call mysql-create-user"
   notifies :run, "execute[mysql-create-user]", :immediately
 end
 
 execute "mysql-create-user" do
-  p "mysql-create-user !!"
   command "mysql -u root --password=\"#{node['mysql']['db']['rootpass']}\"  < /tmp/grants.sql"
 end
-
 
 package "make" do
   action :install
@@ -53,7 +43,6 @@ end
 chef_gem "mysql" do
   action :nothing
   subscribes :install, "package[libmysqld-dev]", :immediately
-#  notifies :run, "execute[mysql-create-database]", :immediately
 end
 
 execute "mysql-create-database" do
