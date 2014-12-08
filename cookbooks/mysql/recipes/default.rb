@@ -73,9 +73,22 @@ execute "mysql-create-tables" do
   end
 end
 
+execute "mysql-insert-default-data" do
+  command "/usr/bin/mysql -u root #{node['mysql']['db']['database']} < /tmp/insert_default_data.sql"
+  action :nothing
+end
+
 cookbook_file "tmp/tables.sql" do
   owner "root"
   group "root"
   mode "0600"
   notifies :run, "execute[mysql-create-tables]", :immediately
 end
+
+cookbook_file "tmp/insert_default_data.sql" do
+  owner "root"
+  group "root"
+  mode "0600"
+  notifies :run, "execute[mysql-insert-default-data]"
+end
+
