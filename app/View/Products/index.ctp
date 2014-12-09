@@ -25,7 +25,7 @@
 		<?php else: ?>
 			<td><?php echo "-" ?>&nbsp;</td>
 		<?php endif ?>
-		<td><?php echo h($product['Product']['image']); ?>&nbsp;</td>
+		<td><?php echo h($product['Product']['image_id']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
 		<td class="actions">
