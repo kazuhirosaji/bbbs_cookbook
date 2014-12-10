@@ -4,7 +4,7 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('filename'); ?></th>
+			<th><?php echo $this->Paginator->sort('filepath'); ?></th>
 			<th><?php echo $this->Paginator->sort('size'); ?></th>
 			<th><?php echo $this->Paginator->sort('type'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -13,7 +13,7 @@
 	<tr>
 		<td><?php echo h($image['Image']['id']); ?>&nbsp;</td>
 		<td><?php echo h($image['Image']['name']); ?>&nbsp;</td>
-		<td><?php echo h($image['Image']['filename']); ?>&nbsp;</td>
+		<td><?php echo h($image['Image']['filepath']); ?>&nbsp;</td>
 		<td><?php echo h($image['Image']['size']); ?>&nbsp;</td>
 		<td><?php echo h($image['Image']['type']); ?>&nbsp;</td>
 		<td class="actions">
