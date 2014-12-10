@@ -17,6 +17,16 @@ class ImagesController extends AppController {
 	public $components = array('Paginator', 'Session');
 
 /**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
+		$this->Image->recursive = 0;
+		$this->set('images', $this->Paginator->paginate());
+	}
+
+/**
  * add method
  *
  * @return void
@@ -29,50 +39,5 @@ class ImagesController extends AppController {
 				move_uploaded_file($file['tmp_name'], $dest_fullpath);
 			}
 		}
-	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->Nation->exists($id)) {
-			throw new NotFoundException(__('Invalid nation'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Nation->save($this->request->data)) {
-				$this->Session->setFlash(__('The nation has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The nation could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Nation.' . $this->Nation->primaryKey => $id));
-			$this->request->data = $this->Nation->find('first', $options);
-		}
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->Nation->id = $id;
-		if (!$this->Nation->exists()) {
-			throw new NotFoundException(__('Invalid nation'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->Nation->delete()) {
-			$this->Session->setFlash(__('The nation has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The nation could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
 	}
 }
