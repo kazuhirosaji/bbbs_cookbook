@@ -4,12 +4,18 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
+			<th><?php echo $this->Paginator->sort('filename'); ?></th>
+			<th><?php echo $this->Paginator->sort('size'); ?></th>
+			<th><?php echo $this->Paginator->sort('type'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($images as $image): ?>
 	<tr>
 		<td><?php echo h($image['Image']['id']); ?>&nbsp;</td>
 		<td><?php echo h($image['Image']['name']); ?>&nbsp;</td>
+		<td><?php echo h($image['Image']['filename']); ?>&nbsp;</td>
+		<td><?php echo h($image['Image']['size']); ?>&nbsp;</td>
+		<td><?php echo h($image['Image']['type']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $image['Image']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $image['Image']['id'])); ?>

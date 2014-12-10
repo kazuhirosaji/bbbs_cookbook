@@ -37,6 +37,12 @@ class ImagesController extends AppController {
 				$file = $this->request->data['Image']['file'];
 				$dest_fullpath = APP. 'tmp/saji/'. $file['name'];
 				move_uploaded_file($file['tmp_name'], $dest_fullpath);
+				$file['filename'] = $file['tmp_name'];
+				if ($this->Image->save($file)) {
+					$this->Session->setFlash(__('The image has been saved.'));
+				} else {
+					$this->Session->setFlash(__('The image could not be saved. Please, try again.'));
+				}
 			}
 		}
 	}
