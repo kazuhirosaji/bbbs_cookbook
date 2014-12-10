@@ -7,9 +7,9 @@ CREATE TABLE products (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
     nation_id INT,
-    image_id INT DEFAULT NULL,
     description TEXT DEFAULT NULL,
     link VARCHAR(255) DEFAULT NULL,
+    imagename VARCHAR(50) DEFAULT NULL,
     created DATETIME DEFAULT NULL,
     modified DATETIME DEFAULT NULL
 );

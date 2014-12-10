@@ -7,7 +7,7 @@
 			<th><?php echo $this->Paginator->sort('nation_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('link'); ?></th>
-			<th><?php echo $this->Paginator->sort('image'); ?></th>
+			<th>image</th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -25,7 +25,8 @@
 		<?php else: ?>
 			<td><?php echo "-" ?>&nbsp;</td>
 		<?php endif ?>
-		<td><?php echo h($product['Product']['image_id']); ?>&nbsp;</td>
+
+		<td><?php echo $this->Html->image(h("products/". $product['Product']['imagename']), array('alt' => 'Image file')); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
 		<td class="actions">
