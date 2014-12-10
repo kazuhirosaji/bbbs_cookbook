@@ -23,3 +23,7 @@ Thumbs.db
 # Vagrant ignore files #
 ########################
 .vagrant
+
+# User files #
+##############
+/app/webroot/img/products/*
