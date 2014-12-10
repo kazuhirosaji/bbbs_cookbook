@@ -35,7 +35,7 @@ class ImagesController extends AppController {
 		if ($this->request->is('post')) {
 			if ($this->request->data) {
 				$file = $this->request->data['Image']['file'];
-				$dest_fullpath = APP. 'tmp/saji/'. $file['name'];
+				$dest_fullpath = IMAGES . "products/" . $file['name'];
 				move_uploaded_file($file['tmp_name'], $dest_fullpath);
 				$file['filepath'] = $dest_fullpath;
 				if ($this->Image->save($file)) {
