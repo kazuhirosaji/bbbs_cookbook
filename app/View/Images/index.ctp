@@ -13,7 +13,6 @@
 	<tr>
 		<td><?php echo h($image['Image']['id']); ?>&nbsp;</td>
 		<td><?php echo h($image['Image']['name']); ?>&nbsp;</td>
-		<!-- <td><?php echo h($image['Image']['filepath']); ?>&nbsp;</td> -->
 		<td><?php echo $this->Html->image(h("products/". $image['Image']['name']), array('alt' => 'Image file')); ?></td>
 		<td><?php echo h($image['Image']['size']); ?>&nbsp;</td>
 		<td><?php echo h($image['Image']['type']); ?>&nbsp;</td>

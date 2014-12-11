@@ -25,8 +25,16 @@
 		<?php else: ?>
 			<td><?php echo "-" ?>&nbsp;</td>
 		<?php endif ?>
+		<?php
+			$imagename = h($product['Product']['imagename']);
+			if (strlen($imagename) > 0 && file_exists("./img/products/". $imagename )): 
+		?>
+			<td><?php echo $this->Html->image(h("products/". $product['Product']['imagename']), 
+				array('alt' => 'Image file')); ?>&nbsp;</td>
+		<?php else: ?>
+			<td><?php echo $this->Html->image("NoImage.png", array('alt' => 'Image file')); ?>&nbsp;</td>
+		<?php endif ?>
 
-		<td><?php echo $this->Html->image(h("products/". $product['Product']['imagename']), array('alt' => 'Image file')); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['created']); ?>&nbsp;</td>
 		<td><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
 		<td class="actions">
