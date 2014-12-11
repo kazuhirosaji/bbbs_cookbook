@@ -12,7 +12,6 @@
   /vagrant/app/tmp/cache/models/myapp_cake_model_default_bbbs_list
   /vagrant/app/tmp/cache/models/myapp_cake_model_default_bbbs_nations
   /vagrant/app/tmp/cache/models/myapp_cake_model_default_bbbs_products
-  /vagrant/app/tmp/cache/models/myapp_cake_model_default_bbbs_images
 }.each do |path|
   directory path do
   	owner 'www-data'
