@@ -45,6 +45,6 @@ end
 
 execute "phpunit-install" do
   action :nothing
-  command "pear upgrade PEAR; pear config-set auto_discover 1; pear install pear.phpunit.de/PHPUnit-3.7.32"
+  command "pear upgrade PEAR; pear config-set auto_discover 1; pear install --alldeps pear.phpunit.de/PHPUnit"
   not_if { ::File.exists?("/usr/bin/phpunit")}
 end
