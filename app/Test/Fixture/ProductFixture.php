@@ -16,7 +16,7 @@ class ProductFixture extends CakeTestFixture {
 		'nation_id' => array('type' => 'integer', 'null' => true, 'default' => null),
 		'description' => array('type' => 'text', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'link' => array('type' => 'string', 'null' => true, 'default' => null, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
-		'image' => array('type' => 'binary', 'null' => true, 'default' => null),
+		'imagename' => array('type' => 'string', 'null' => true, 'default' => null),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'indexes' => array(
