@@ -14,7 +14,7 @@ service "mysql" do
   action [ :enable, :start]
 end
 
-template "tmp/grants.sql" do
+template "/tmp/grants.sql" do
   source "grants.sql.erb"
   owner "root"
   group "root"
@@ -107,7 +107,7 @@ execute "mysql-insert-default-data" do
   action :nothing
 end
 
-cookbook_file "tmp/tables.sql" do
+cookbook_file "/tmp/tables.sql" do
   owner "root"
   group "root"
   mode "0600"
@@ -115,7 +115,7 @@ cookbook_file "tmp/tables.sql" do
   notifies :run, "execute[mysql-create-test-tables]", :immediately
 end
 
-cookbook_file "tmp/insert_default_data.sql" do
+cookbook_file "/tmp/insert_default_data.sql" do
   owner "root"
   group "root"
   mode "0600"
