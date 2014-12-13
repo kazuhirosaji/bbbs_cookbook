@@ -37,7 +37,7 @@ class ProductFixture extends CakeTestFixture {
 			'nation_id' => 1,
 			'description' => 'Sake is alchol drink in Japan.',
 			'link' => 'http://www.yahoo.co.jp',
-			'image' => '',
+			'imagename' => '',
 			'created' => '2014-10-18 13:58:59',
 			'modified' => '2014-10-18 13:58:59'
 		),
@@ -47,7 +47,7 @@ class ProductFixture extends CakeTestFixture {
 			'nation_id' => 2,
 			'description' => 'Beer is famous alchol drink in German.',
 			'link' => 'http://www.yahoo.co.jp',
-			'image' => '',
+			'imagename' => '',
 			'created' => '2014-10-29 13:58:59',
 			'modified' => '2014-10-29 13:58:59'
 		),

@@ -33,7 +33,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '1',
 				'description' => 'Sake is alchol drink in Japan.',
 				'link' => 'http://www.yahoo.co.jp',
-				'image' => '',
+				'imagename' => '',
 				'created' => '2014-10-18 13:58:59',
 				'modified' => '2014-10-18 13:58:59'),
 				'Nation' => array("id" => 1, "name" => "JPN"),
@@ -44,7 +44,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '2',
 				'description' => 'Beer is famous alchol drink in German.',
 				'link' => 'http://www.yahoo.co.jp',
-				'image' => '',
+				'imagename' => '',
 				'created' => '2014-10-29 13:58:59',
 				'modified' => '2014-10-29 13:58:59'),
 				'Nation' => array("id" => 2, "name" => "USA"),
@@ -69,7 +69,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '2',
 				'description' => 'Beer is famous alchol drink in German.',
 				'link' => 'http://www.yahoo.co.jp',
-				'image' => '',
+				'imagename' => '',
 				'created' => '2014-10-29 13:58:59',
 				'modified' => '2014-10-29 13:58:59'),
 				
@@ -92,7 +92,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '4',
 				'description' => 'This is Red wine',
 				'link' => 'http://www.yahoo.co.jp',
-				'image' => '',
+				'imagename' => '',
 				'created' => $now,
 				'modified' => $now,
 			),
@@ -105,7 +105,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '4',
 				'description' => 'This is Red wine',
 				'link' => 'http://www.yahoo.co.jp',
-				'image' => '',
+				'imagename' => '',
 				'created' => $now,
 				'modified' => $now);
 		$result = $this->testAction('/products/add', array('data' => $data, 'method' => 'post', 'return' => 'vars'));
@@ -135,7 +135,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '3',
 				'description' => 'This is Beer from German.',
 				'link' => 'http://www.yahoo.co.jp',
-				'image' => '',
+				'imagename' => '',
 				'created' => '2014-10-29 13:58:59',
 				'modified' => $now),
 				
