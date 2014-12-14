@@ -56,7 +56,7 @@ class ProductsController extends AppController {
 
 			if ($this->Product->save($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+//				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
 			}

@@ -46,7 +46,7 @@
 			<td><?php echo $product['nation_id']; ?></td>
 			<td><?php echo $product['description']; ?></td>
 			<td><?php echo $product['link']; ?></td>
-			<td><?php echo $product['image']; ?></td>
+			<td><?php echo $product['imagename']; ?></td>
 			<td><?php echo $product['created']; ?></td>
 			<td><?php echo $product['modified']; ?></td>
 			<td class="actions">

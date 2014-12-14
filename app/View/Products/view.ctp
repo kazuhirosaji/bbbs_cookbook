@@ -28,7 +28,7 @@
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['image']); ?>
+			<?php echo h($product['Product']['imagename']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>

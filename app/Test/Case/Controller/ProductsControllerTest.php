@@ -17,6 +17,13 @@ class ProductsControllerTest extends ControllerTestCase {
 		'app.nation'
 	);
 
+	public $image = array('name' => 'pizza.jpeg',
+	 	'type' => 'image/jpeg',
+		'tmp_name' => '/tmp/phpJ1jzZT',
+		'error' => '0',
+		'size' => '11414'
+	);
+
 /**
  * testIndex method
  *
@@ -87,12 +94,12 @@ class ProductsControllerTest extends ControllerTestCase {
 	public function testAdd() {
 		$now = date('Y-m-d H:i:s');
 		$expected = array('Product' => array(
-				'id' => 3,
+				'id' => '3',
 				'name' => 'Wine',
 				'nation_id' => '4',
 				'description' => 'This is Red wine',
 				'link' => 'http://www.yahoo.co.jp',
-				'imagename' => '',
+				'imagename' => 'pizza.jpeg',
 				'created' => $now,
 				'modified' => $now,
 			),
@@ -105,7 +112,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '4',
 				'description' => 'This is Red wine',
 				'link' => 'http://www.yahoo.co.jp',
-				'imagename' => '',
+				'file' => $this->image,
 				'created' => $now,
 				'modified' => $now);
 		$result = $this->testAction('/products/add', array('data' => $data, 'method' => 'post', 'return' => 'vars'));
