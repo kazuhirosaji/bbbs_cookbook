@@ -130,23 +130,26 @@ class ProductsControllerTest extends ControllerTestCase {
 	public function testEdit() {
 		$data['Product'] = array(
 			'id' => 2,
-			'description' => 'This is Beer from German.',
-			'nation_id' => 3, );
+			'name' => 'Pizza',
+			'description' => 'This is pizza.',
+			'nation_id' => 2, 
+			'file' => $this->image
+		);
 
 		$now = date('Y-m-d H:i:s');
 
 		$expected = array(
 				'Product' => array(
 				'id' => '2',
-				'name' => 'Beer',
-				'nation_id' => '3',
-				'description' => 'This is Beer from German.',
+				'name' => 'Pizza',
+				'nation_id' => '2',
+				'description' => 'This is pizza.',
 				'link' => 'http://www.yahoo.co.jp',
-				'imagename' => 'Beer.jpeg',
+				'imagename' => 'pizza.jpeg',
 				'created' => '2014-10-29 13:58:59',
 				'modified' => $now),
 				
-				'Nation' => array("id" => 3, "name" => "GER"),
+				'Nation' => array("id" => '2', "name" => "USA"),
 			);
 
 		$result = $this->testAction('/products/edit/2', array('data' => $data, 'return' => 'vars'));
