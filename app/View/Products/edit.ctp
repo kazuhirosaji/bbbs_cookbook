@@ -1,5 +1,5 @@
 <div class="products form">
-<?php echo $this->Form->create('Product'); ?>
+<?php echo $this->Form->create('Product', array('type' => 'file')); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Product'); ?></legend>
 	<?php

@@ -77,6 +77,13 @@ class ProductsController extends AppController {
 			throw new NotFoundException(__('Invalid product'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			if (isset($this->request->data['Product']['file'])) {
+				$file = $this->request->data['Product']['file'];
+				$dest_fullpath = IMAGES . "products/" . $file['name'];
+				move_uploaded_file($file['tmp_name'], $dest_fullpath);
+				$this->request->data['Product']['imagename'] = $file['name'];				
+			}
+
 			if ($this->Product->save($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved.'));
 				return $this->redirect(array('action' => 'index'));
