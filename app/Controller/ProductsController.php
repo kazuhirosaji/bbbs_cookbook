@@ -94,7 +94,7 @@ class ProductsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if (isset($this->request->data['Product']['file']) && $this->request->data['Product']['file']['size'] > 0) {
 				$file = $this->request->data['Product']['file'];
-				$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['name'];
+				$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['id'];
 				if(file_exists($dest_fullpath)) {
 					unlink($dest_fullpath);
 				}
@@ -102,7 +102,7 @@ class ProductsController extends AppController {
 				if ($res) {
 					chmod($dest_fullpath, 0666);
 				}
-				$this->request->data['Product']['imagename'] = $this->request->data['Product']['name'];
+				$this->request->data['Product']['imagename'] = $this->request->data['Product']['id'];
 			}
 
 			if ($this->Product->save($this->request->data)) {

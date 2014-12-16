@@ -47,7 +47,7 @@ class ProductFixture extends CakeTestFixture {
 			'nation_id' => 2,
 			'description' => 'Beer is famous alchol drink in German.',
 			'link' => 'http://www.yahoo.co.jp',
-			'imagename' => 'Beer.jpeg',
+			'imagename' => '2',
 			'created' => '2014-10-29 13:58:59',
 			'modified' => '2014-10-29 13:58:59'
 		),
