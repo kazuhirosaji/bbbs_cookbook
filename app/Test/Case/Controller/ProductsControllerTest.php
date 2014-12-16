@@ -17,7 +17,8 @@ class ProductsControllerTest extends ControllerTestCase {
 		'app.nation'
 	);
 
-	public $image = array('name' => 'pizza.jpeg',
+	public $image = array(
+		'name' => 'pizza.jpeg',
 	 	'type' => 'image/jpeg',
 		'tmp_name' => '/tmp/phpJ1jzZT',
 		'error' => '0',
@@ -99,7 +100,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '4',
 				'description' => 'This is Red wine',
 				'link' => 'http://www.yahoo.co.jp',
-				'imagename' => 'pizza.jpeg',
+				'imagename' => 'Wine',
 				'created' => $now,
 				'modified' => $now,
 			),
@@ -145,7 +146,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '2',
 				'description' => 'This is pizza.',
 				'link' => 'http://www.yahoo.co.jp',
-				'imagename' => 'pizza.jpeg',
+				'imagename' => 'Pizza',
 				'created' => '2014-10-29 13:58:59',
 				'modified' => $now),
 				
@@ -153,6 +154,54 @@ class ProductsControllerTest extends ControllerTestCase {
 			);
 
 		$result = $this->testAction('/products/edit/2', array('data' => $data, 'return' => 'vars'));
+		$result = $this->testAction('/products/view/2', array('method' => 'get', 'return' => 'vars'));
+		debug($result);
+
+		$this->assertEquals($expected, $result['product']);
+
+	}
+
+	public function testEdit2times() {
+		$data1st['Product'] = array(
+			'id' => 2,
+			'name' => 'Pizza',
+			'description' => 'This is pizza.',
+			'nation_id' => 2, 
+			'file' => $this->image
+		);
+
+		$curry = array(
+			'name' => 'curry.jpeg',
+		 	'type' => 'image/jpeg',
+			'tmp_name' => '/tmp/phpJ1jzZT',
+			'error' => '0',
+			'size' => '11414'
+		);
+		$data2nd['Product'] = array(
+			'id' => 2,
+			'name' => 'Curry',
+			'description' => 'This is curry.',
+			'nation_id' => 3, 
+			'file' => $curry
+		);
+		$now = date('Y-m-d H:i:s');
+
+		$expected = array(
+				'Product' => array(
+				'id' => '2',
+				'name' => 'Curry',
+				'nation_id' => '3',
+				'description' => 'This is curry.',
+				'link' => 'http://www.yahoo.co.jp',
+				'imagename' => 'Curry',
+				'created' => '2014-10-29 13:58:59',
+				'modified' => $now),
+				
+				'Nation' => array("id" => '3', "name" => "GER"),
+			);
+
+		$result = $this->testAction('/products/edit/2', array('data' => $data1st, 'return' => 'vars'));
+		$result = $this->testAction('/products/edit/2', array('data' => $data2nd, 'return' => 'vars'));
 		$result = $this->testAction('/products/view/2', array('method' => 'get', 'return' => 'vars'));
 		debug($result);
 

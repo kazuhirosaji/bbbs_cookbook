@@ -50,13 +50,16 @@ class ProductsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Product->create();
 			$file = $this->request->data['Product']['file'];
-			$dest_fullpath = IMAGES . "products/" . $file['name'];
-			move_uploaded_file($file['tmp_name'], $dest_fullpath);
-			$this->request->data['Product']['imagename'] = $file['name'];
+			$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['name'];
+			$res = move_uploaded_file($file['tmp_name'], $dest_fullpath);
+			if ($res) {			
+				chmod($dest_fullpath, 0666);
+			}
+			$this->request->data['Product']['imagename'] = $this->request->data['Product']['name'];
 
 			if ($this->Product->save($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved.'));
-//				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
 			}
@@ -79,9 +82,15 @@ class ProductsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if (isset($this->request->data['Product']['file'])) {
 				$file = $this->request->data['Product']['file'];
-				$dest_fullpath = IMAGES . "products/" . $file['name'];
-				move_uploaded_file($file['tmp_name'], $dest_fullpath);
-				$this->request->data['Product']['imagename'] = $file['name'];				
+				$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['name'];
+				if(file_exists($dest_fullpath)) {
+					unlink($dest_fullpath);
+				}
+				$res = move_uploaded_file($file['tmp_name'], $dest_fullpath);
+				if ($res) {
+					chmod($dest_fullpath, 0666);
+				}
+				$this->request->data['Product']['imagename'] = $this->request->data['Product']['name'];
 			}
 
 			if ($this->Product->save($this->request->data)) {
