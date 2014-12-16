@@ -80,7 +80,7 @@ class ProductsController extends AppController {
 			throw new NotFoundException(__('Invalid product'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if (isset($this->request->data['Product']['file'])) {
+			if (isset($this->request->data['Product']['file']) && $this->request->data['Product']['file']['size'] > 0) {
 				$file = $this->request->data['Product']['file'];
 				$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['name'];
 				if(file_exists($dest_fullpath)) {
