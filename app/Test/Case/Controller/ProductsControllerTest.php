@@ -100,7 +100,7 @@ class ProductsControllerTest extends ControllerTestCase {
 				'nation_id' => '4',
 				'description' => 'This is Red wine',
 				'link' => 'http://www.yahoo.co.jp',
-				'imagename' => 'Wine',
+				'imagename' => '3',
 				'created' => $now,
 				'modified' => $now,
 			),

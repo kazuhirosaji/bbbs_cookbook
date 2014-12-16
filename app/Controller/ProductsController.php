@@ -41,6 +41,26 @@ class ProductsController extends AppController {
 		$this->set('product', $this->Product->find('first', $options));
 	}
 
+
+	public function saveImageFile() {
+		$options = array(
+			'fields' => 'id',
+			'conditions' => array('Product.name' => $this->request->data['Product']['name'])
+		);
+		$newId = $this->Product->find('first', $options);
+		$imageName = $newId['Product']['id'];
+
+		$dest_fullpath = IMAGES . "products/" . $imageName;
+
+		$file = $this->request->data['Product']['file'];
+		$res = move_uploaded_file($file['tmp_name'], $dest_fullpath);
+		if ($res) {
+			chmod($dest_fullpath, 0666);
+		}
+
+		$saveImage = array('Product' => array('imagename' => $imageName));
+		return $this->Product->save($saveImage);
+	}
 /**
  * add method
  *
@@ -49,15 +69,7 @@ class ProductsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Product->create();
-			$file = $this->request->data['Product']['file'];
-			$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['name'];
-			$res = move_uploaded_file($file['tmp_name'], $dest_fullpath);
-			if ($res) {			
-				chmod($dest_fullpath, 0666);
-			}
-			$this->request->data['Product']['imagename'] = $this->request->data['Product']['name'];
-
-			if ($this->Product->save($this->request->data)) {
+			if ($this->Product->save($this->request->data) && $this->saveImageFile()) {
 				$this->Session->setFlash(__('The product has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
