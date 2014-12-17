@@ -119,6 +119,23 @@ class ProductsController extends AppController {
 		$this->set(compact('nations'));
 	}
 
+
+/**
+ * delete image method
+ *
+ * @param string $id
+ * @return void
+ */
+	public function deleteImage($id) {
+		if (!isset($id)) {
+			return;
+		}
+		$dest_fullpath = IMAGES . "products/" . $id;
+		if(file_exists($dest_fullpath)) {
+			unlink($dest_fullpath);
+		}
+	}
+
 /**
  * delete method
  *
@@ -134,6 +151,7 @@ class ProductsController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->Product->delete()) {
 			$this->Session->setFlash(__('The product has been deleted.'));
+			$this->deleteImage($id);
 		} else {
 			$this->Session->setFlash(__('The product could not be deleted. Please, try again.'));
 		}
