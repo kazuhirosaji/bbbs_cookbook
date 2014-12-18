@@ -93,11 +93,9 @@ class ProductsController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if (isset($this->request->data['Product']['file']) && $this->request->data['Product']['file']['size'] > 0) {
+				$this->deleteImage($id);
 				$file = $this->request->data['Product']['file'];
-				$dest_fullpath = IMAGES . "products/" . $this->request->data['Product']['id'];
-				if(file_exists($dest_fullpath)) {
-					unlink($dest_fullpath);
-				}
+				$dest_fullpath = IMAGES . "products/" . $id;
 				$res = move_uploaded_file($file['tmp_name'], $dest_fullpath);
 				if ($res) {
 					chmod($dest_fullpath, 0666);
