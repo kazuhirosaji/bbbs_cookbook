@@ -1,6 +1,15 @@
-<div class="nations index">
+<div class="row">
+<div class="actions span3">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Nation'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
+<div class="nations index span9" >
 	<h2><?php echo __('Nations'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
+	<table cellpadding="0" cellspacing="0" class="table table-condensed">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
@@ -10,10 +19,10 @@
 	<tr>
 		<td><?php echo h($nation['Nation']['id']); ?>&nbsp;</td>
 		<td><?php echo h($nation['Nation']['name']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $nation['Nation']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $nation['Nation']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $nation['Nation']['id']), null, __('Are you sure you want to delete # %s?', $nation['Nation']['id'])); ?>
+		<td>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $nation['Nation']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $nation['Nation']['id']), array('class' => 'btn btn-mini')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $nation['Nation']['id']), array('class' => 'btn btn-mini'), __('Are you sure you want to delete # %s?', $nation['Nation']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -32,11 +41,4 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Nation'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
 </div>
