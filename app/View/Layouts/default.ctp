@@ -52,13 +52,17 @@
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Lists</a>
+							<ul class="dropdown-menu" role="menu">
+								<?php echo $this->element('lists'); ?>
+							</ul>
+						</li>
+						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Actions</a>
 							<ul class="dropdown-menu" role="menu">
 								<?php echo $this->element('actions'); ?>
 							</ul>
 						</li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#contact">Contact</a></li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
