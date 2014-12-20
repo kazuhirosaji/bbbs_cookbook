@@ -54,9 +54,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Actions</a>
 							<ul class="dropdown-menu" role="menu">
-								<li><?php echo $this->Html->link(__('New Nation'), array('action' => 'add')); ?></li>
-								<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-								<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+								<?php echo $this->element('actions'); ?>
 							</ul>
 						</li>
 						<li><a href="#about">About</a></li>
