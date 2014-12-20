@@ -1,7 +1,7 @@
 <div class="row">
 <div class="nations index span9" >
 	<h2><?php echo __('Nations'); ?></h2>
-	<table cellpadding="0" cellspacing="0" class="table table-condensed">
+	<table class="table table-striped">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
