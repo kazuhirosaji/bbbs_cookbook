@@ -51,7 +51,14 @@
 				<a class="brand" href="#"><?php echo __('CakePHP'); ?></a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Actions</a>
+							<ul class="dropdown-menu" role="menu">
+								<li><?php echo $this->Html->link(__('New Nation'), array('action' => 'add')); ?></li>
+								<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
+								<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
+							</ul>
+						</li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#contact">Contact</a></li>
 					</ul>

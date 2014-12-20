@@ -1,12 +1,4 @@
 <div class="row">
-<div class="actions span3">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Nation'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('controller' => 'products', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 <div class="nations index span9" >
 	<h2><?php echo __('Nations'); ?></h2>
 	<table cellpadding="0" cellspacing="0" class="table table-condensed">
@@ -27,6 +19,9 @@
 	</tr>
 <?php endforeach; ?>
 	</table>
+</div>
+<div class="span3">
+	<h3><?php echo __('Pagenate'); ?></h3>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -40,5 +35,4 @@
 		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
-</div>
 </div>
