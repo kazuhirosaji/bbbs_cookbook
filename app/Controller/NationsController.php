@@ -51,8 +51,7 @@ class NationsController extends AppController {
 			$this->Nation->create();
 			if ($this->Nation->save($this->request->data)) {
 				$this->Session->setFlash(__('The nation has been saved.'));
-				var_dump($this->request->data);
-//				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The nation could not be saved. Please, try again.'));
 			}
