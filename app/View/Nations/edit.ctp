@@ -10,7 +10,7 @@
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<p><?php echo __('Actions'); ?></p>
 	<?php echo $this->Form->postLink(
 			__('Delete this name'), 
 			array('action' => 'delete', $this->Form->value('Nation.id')),

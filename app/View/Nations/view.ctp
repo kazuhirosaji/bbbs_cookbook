@@ -15,7 +15,7 @@
 </div>
 
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
+	<p><?php echo __('Actions'); ?></p>
 	<?php echo $this->Html->link(
 			__('Edit this nation'),
 			array('action' => 'edit', $nation['Nation']['id']),
