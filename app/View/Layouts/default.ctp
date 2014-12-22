@@ -48,7 +48,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="#"><?php echo __('bbbs'); ?></a>
+				<?php echo $this->Html->link(__('bbbs'), array('controller' => 'products', 'action' => 'index'), array('class' => 'brand')); ?>
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class="dropdown">
