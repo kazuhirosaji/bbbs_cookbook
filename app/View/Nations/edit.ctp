@@ -12,7 +12,7 @@
 <div class="actions">
 	<p><?php echo __('Actions'); ?></p>
 	<?php echo $this->Form->postLink(
-			__('Delete this name'), 
+			__('Delete this nation'), 
 			array('action' => 'delete', $this->Form->value('Nation.id')),
 			array('class' => 'btn btn-danger btn-mini'),
 			__('Are you sure you want to delete this nation?')
