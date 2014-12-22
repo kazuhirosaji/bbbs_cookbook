@@ -28,7 +28,15 @@
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo h($product['Product']['imagename']); ?>
+			<?php
+				$imagename = h($product['Product']['imagename']);
+				if (strlen($imagename) > 0 && file_exists("./img/products/". $imagename )): 
+			?>
+				<td><?php echo $this->Html->image(h("products/". $product['Product']['imagename']), 
+					array('alt' => 'Image file')); ?>&nbsp;</td>
+			<?php else: ?>
+				<td><?php echo $this->Html->image("NoImage.png", array('alt' => 'Image file')); ?>&nbsp;</td>
+			<?php endif ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Created'); ?></dt>
@@ -44,13 +52,16 @@
 	</dl>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Nations'), array('controller' => 'nations', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Nation'), array('controller' => 'nations', 'action' => 'add')); ?> </li>
-	</ul>
+	<p><?php echo __('Actions'); ?></p>
+	<?php echo $this->Html->link(
+			__('Edit this product'),
+			array('action' => 'edit', $product['Product']['id']),
+			array('class' => 'btn btn-primary btn-mini')
+	);?>
+	<?php echo $this->Form->postLink(
+			__('Delete this product'),
+			array('action' => 'delete', $product['Product']['id']),
+			array('class' => 'btn btn-danger btn-mini'),
+			__('Are you sure you want to delete this product?')
+	);?>
 </div>
