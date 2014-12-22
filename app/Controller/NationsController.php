@@ -23,6 +23,7 @@ class NationsController extends AppController {
  */
 	public function index() {
 		$this->Nation->recursive = 0;
+		$this->Paginator->settings['limit'] = 10;
 		$this->set('nations', $this->Paginator->paginate());
 	}
 

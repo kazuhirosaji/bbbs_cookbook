@@ -1,5 +1,4 @@
-<div class="row">
-<div class="nations index span9" >
+<div class="nations">
 	<h2><?php echo __('Nations'); ?></h2>
 	<table class="table table-striped">
 	<tr>
@@ -20,19 +19,6 @@
 <?php endforeach; ?>
 	</table>
 </div>
-<div class="span3">
-	<h3><?php echo __('Pagenate'); ?></h3>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
+
+<h3><?php echo __('Pagenate'); ?></h3>
+<?php echo $this->element('paginate'); ?>
