@@ -9,8 +9,11 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('link');
 		echo $this->Form->input('file', array('type' => 'file', 'label' => '画像'));
+		$imagename = h($this->Form->value('Product.imagename'));
+		if (strlen($imagename) > 0 && file_exists("./img/products/". $imagename )){
+			echo $this->Html->image(h("products/". $imagename),  array('alt' => 'Image file'));
+		}
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
