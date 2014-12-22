@@ -20,5 +20,4 @@
 	</table>
 </div>
 
-<h3><?php echo __('Pagenate'); ?></h3>
 <?php echo $this->element('paginate'); ?>
